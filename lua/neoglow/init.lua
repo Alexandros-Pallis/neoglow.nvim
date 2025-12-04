@@ -21,7 +21,6 @@ function M.setup_keymaps()
       local lhs = keymap[1]
       local rhs = keymap[2]
       local desc = keymap.desc or "Neoglow keymap"
-      print(lhs, rhs, desc)
       vim.keymap.set("n", lhs, rhs, { desc = desc, noremap = true, silent = true })
     end
   end
