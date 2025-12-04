@@ -39,12 +39,28 @@ For other installation methods, see [Glow's documentation](https://github.com/ch
 
 ### [lazy.nvim](https://github.com/folke/lazy.nvim)
 
+**Option 1: Lazy-load on keypress (recommended)**
+
 ```lua
 {
   "Alexandros-Pallis/neoglow.nvim",
-  config = function()
-    require("neoglow").setup()
-  end,
+  opts = {
+    keys = {
+      {
+        "<leader>og",
+        function() require("neoglow").toggle() end,
+        desc = "Toggle Neoglow",
+      },
+    },
+  },
+}
+```
+
+**Option 2: Load immediately, use command only**
+
+```lua
+{
+  "Alexandros-Pallis/neoglow.nvim",
 }
 ```
 
@@ -73,27 +89,36 @@ EOF
 
 ### Commands
 
-- `:Neoglow open` - Open Glow preview of the current Markdown file
+- `:Neoglow toggle` - Toggle Glow preview of the current Markdown file
 
 ### Default Keybindings
 
-- `<leader>og` - Open Glow preview (in normal mode)
 - `q` - Return to source buffer (when in preview mode)
+
+No toggle keymap is set by default. Use `:Neoglow toggle` or configure your own keymap (see Configuration section).
 
 ### Example Workflow
 
 1. Open a Markdown file in Neovim
-2. Press `<leader>og` or run `:Neoglow open`
+2. Run `:Neoglow toggle` (or use a custom keymap if configured)
 3. View the rendered preview in the same window
 4. Press `q` to return to the source Markdown file
-5. Press `<leader>og` again to toggle back to the preview
+5. Run `:Neoglow toggle` again to toggle back to the preview
 
 ## Configuration
 
-Currently, the plugin runs with default settings via `setup()`. Custom configuration options will be added in future releases.
+You can customize keymaps by passing options to `setup()`:
 
 ```lua
-require("neoglow").setup()
+require("neoglow").setup({
+  keys = {
+    {
+      "<leader>og",
+      function() require("neoglow").toggle() end,
+      desc = "Toggle Neoglow",
+    },
+  },
+})
 ```
 
 ## How It Works
@@ -112,7 +137,7 @@ neoglow.nvim creates a terminal buffer and runs Glow to render your Markdown fil
 - [ ] Live preview updates on buffer save
 - [ ] Custom Glow styling options
 - [ ] Split window preview mode
-- [ ] Configurable keybindings
+- [x] Configurable keybindings
 - [ ] Support for unsaved buffers
 - [ ] Better error handling
 
