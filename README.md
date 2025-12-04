@@ -2,7 +2,8 @@
 
 A Neovim plugin for previewing Markdown files using [Glow](https://github.com/charmbracelet/glow) directly in your editor.
 
-> ⚠️ **EARLY DEVELOPMENT WARNING**: This plugin is in a very early stage of development. Use at your own risk. Expect breaking changes, bugs, and incomplete features.
+> [!CAUTION]
+**EARLY DEVELOPMENT WARNING**: This plugin is in a very early stage of development. Use at your own risk. Expect breaking changes, bugs, and incomplete features.
 
 ## Features
 
