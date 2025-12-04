@@ -15,7 +15,7 @@ A Neovim plugin for previewing Markdown files using [Glow](https://github.com/ch
 ## Requirements
 
 - **Neovim** >= 0.7.0 (requires `vim.api.nvim_create_user_command`, `vim.api.nvim_set_option_value`, and terminal job control APIs)
-- **[Glow](https://github.com/charmbracelet/glow)** - Must be installed and available in your PATH
+- **[Glow](uttps://github.com/charmbracelet/glow)** - Must be installed and available in your PATH
 
 ### Installing Glow
 
@@ -61,6 +61,7 @@ For other installation methods, see [Glow's documentation](https://github.com/ch
 ```lua
 {
   "Alexandros-Pallis/neoglow.nvim",
+  opts = {},
 }
 ```
 
@@ -70,7 +71,7 @@ For other installation methods, see [Glow's documentation](https://github.com/ch
 use {
   "Alexandros-Pallis/neoglow.nvim",
   config = function()
-    require("neoglow").setup()
+    require("neoglow").setup({})
   end,
 }
 ```
@@ -81,7 +82,7 @@ use {
 Plug 'Alexandros-Pallis/neoglow.nvim'
 
 lua << EOF
-  require("neoglow").setup()
+  require("neoglow").setup({})
 EOF
 ```
 
